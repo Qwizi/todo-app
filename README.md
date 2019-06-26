@@ -7,3 +7,8 @@ TODO-APP by Qwizi and Poftorek
 * `cd app`
 * `python manage.py migrate`
 * `python manage.py runserver`
+
+# Uruchamianie frontendu
+* `cd frontend`
+* `npm install`
+* `npm start`
