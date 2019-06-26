@@ -1,3 +1,6 @@
+const api = axios.create({
+    baseURL: 'http://localhost:8000'
+})
 
 let logged = localStorage.getItem('token') ? true : false;
 console.log(logged);
@@ -8,7 +11,7 @@ let userData = [];
 
 async function getUserData() {
     try {
-        res = await axios.get('http://localhost:8000/api/users/me/', {
+        res = await api.get(`/api/users/me/`, {
             headers: {'Authorization': `Token ${token}`}
         })
         userData = res.data;
@@ -25,7 +28,7 @@ if (logged) {
 
 document.getElementById('login').addEventListener('click', async () => {
     try {
-        res = await axios.post('http://localhost:8000/api-token-auth/', {
+        res = await api.post(`/api-token-auth/`, {
             username: "admin",
             password: "admin123"
         });
@@ -47,10 +50,14 @@ document.getElementById('logout').addEventListener('click', () => {
 });
 
 async function getTodosWithForEach() {
-    let res = await axios.get('http://localhost:8000/api/todos/');
-    let todosUL = document.getElementById('todos');
-    res.data.forEach((item, index) => {
-        todosUL.innerHTML += "<li id=" + index + ">" + item['title'] + "</li>";
-    })
+    try {
+        res = await api.get(`/api/todos/`);
+        let todosUL = document.getElementById('todos');
+        res.data.forEach((item, index) => {
+            todosUL.innerHTML += "<li id=" + index + ">" + item['title'] + "</li>";
+        })
+    } catch (error) {
+        console.log(error)
+    }
 }
 getTodosWithForEach();
