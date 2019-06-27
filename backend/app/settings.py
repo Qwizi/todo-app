@@ -125,8 +125,6 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-STATIC_ROOT = os.path.join(BASE_DIR, "../frontend/static")
-
 CORS_ALLOW_CREDENTIALS = True
 
 CORS_ORIGIN_WHITELIST = (

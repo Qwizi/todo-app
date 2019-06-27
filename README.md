@@ -12,3 +12,6 @@ TODO-APP by Qwizi and Poftorek
 * `cd frontend`
 * `npm install`
 * `npm start`
+
+# Endpointy API
+* `/api-token-auth/`
