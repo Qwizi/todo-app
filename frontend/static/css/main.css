@@ -1,0 +1,23 @@
+html {
+  font-size: 62.5%;
+  font-family: 'Roboto', sans-serif;
+}
+
+fieldset {
+  max-width: 50rem;
+  font-size: 1.4rem;
+}
+
+fieldset {
+  border: 1px solid black;
+  margin: 1.5rem;
+  padding: 1rem;
+}
+
+label {
+  margin: 1.5rem;
+}
+#register-field label,
+#login-field label {
+  display: block;
+}
