@@ -15,3 +15,6 @@ TODO-APP by Qwizi and Poftorek
 
 # Endpointy API
 * `/api-token-auth/`
+* `/users/`
+* `/users/me/`
+* `/users/todos/`
