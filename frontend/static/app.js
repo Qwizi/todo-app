@@ -3,19 +3,20 @@ const api = axios.create({
 })
 
 let logged = localStorage.getItem('token') ? true : false;
-console.log(logged);
-console.log(localStorage.getItem('token'));
+console.warn(`Czy zalogowany: ${logged}`);
+console.log(`Token: ${localStorage.getItem('token')}`);
 
 let token = localStorage.getItem('token');
 let userData = [];
 
 async function getUserData() {
     try {
-        res = await api.get(`/api/users/me/`, {
-            headers: {'Authorization': `Token ${token}`}
+        let res = await api.get(`/api/users/me/`, {
+            headers: {
+                'Authorization': `Token ${token}`
+            }
         })
         userData = res.data;
-        console.log("Dane dodane");
         console.log(userData);
     } catch (error) {
         console.log(error)
@@ -26,11 +27,35 @@ if (logged) {
     getUserData()
 }
 
-document.getElementById('login').addEventListener('click', async () => {
+//Register
+const formRegister = document.querySelector('#formRegister');
+formRegister.addEventListener('submit', async (e) => {
+    e.preventDefault();
     try {
-        res = await api.post(`/api-token-auth/`, {
-            username: "admin",
-            password: "admin123"
+        const uName = document.querySelector('#name').value;
+        const uPass = document.querySelector('#password').value;
+        const uMail = document.querySelector('#email').value;
+        let res = await api.post(`/api/users/`, {
+            username: uName,
+            password: uPass,
+            email: uMail
+        });
+        console.log(`zarejestrowano nowego usera ${uName} ${uMail}`);
+    } catch (error) {
+        console.log(error)
+    }
+});
+
+//Login
+const formLogin = document.querySelector('#formLogin');
+formLogin.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    try {
+        const uName = document.querySelector('#username').value;
+        const uPass = document.querySelector('#user-password').value;
+        let res = await api.post(`/api-token-auth/`, {
+            username: uName,
+            password: uPass
         });
         localStorage.setItem('token', res.data.token);
         logged = true;
@@ -38,26 +63,15 @@ document.getElementById('login').addEventListener('click', async () => {
         console.log('zalogowano');
         location.reload();
     } catch (error) {
-        console.log(error)
+        console.log(error);
     }
 });
 
-document.getElementById('logout').addEventListener('click', () => {
+//Logout
+const btnLogout = document.querySelector('#btn-logout');
+btnLogout.addEventListener('click', () => {
     localStorage.removeItem('token')
     logged = false;
     console.log('Wylogowano!')
     location.reload();
 });
-
-async function getTodosWithForEach() {
-    try {
-        res = await api.get(`/api/todos/`);
-        let todosUL = document.getElementById('todos');
-        res.data.forEach((item, index) => {
-            todosUL.innerHTML += "<li id=" + index + ">" + item['title'] + "</li>";
-        })
-    } catch (error) {
-        console.log(error)
-    }
-}
-getTodosWithForEach();
