@@ -51,7 +51,9 @@ document.getElementById('logout').addEventListener('click', () => {
 
 async function getTodosWithForEach() {
     try {
-        res = await api.get(`/api/todos/`);
+        res = await api.get(`/api/users/todos/`,{
+            headers: {'Authorization': `Token ${token}`}
+        });
         let todosUL = document.getElementById('todos');
         res.data.forEach((item, index) => {
             todosUL.innerHTML += "<li id=" + index + ">" + item['title'] + "</li>";
