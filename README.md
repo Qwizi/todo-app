@@ -13,7 +13,7 @@ TODO-APP by Qwizi and Poftorek
 * `npm start`
 
 # Endpointy API
-* `/api-token-auth/`
+* `/auth/`
 * `/users/`
 * `/users/me/`
 * `/users/todos/`
