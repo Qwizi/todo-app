@@ -17,3 +17,6 @@ TODO-APP by Qwizi and Poftorek
 * `/users/`
 * `/users/me/`
 * `/users/todos/`
+* `/users/change_username/`
+* `/users/change_email/`
+* `/users/change_password/`

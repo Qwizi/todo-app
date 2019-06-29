@@ -20,3 +20,13 @@ class UserSerializer(serializers.ModelSerializer):
         user.set_password(validated_data['password'])
         user.save()
         return user
+
+
+class UsernameSerializer(serializers.Serializer):
+    username = serializers.CharField()
+
+class PasswordSerializer(serializers.Serializer):
+    password = serializers.CharField()
+
+class EmailSerializer(serializers.Serializer):
+    email = serializers.EmailField()
