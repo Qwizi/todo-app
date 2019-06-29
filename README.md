@@ -14,9 +14,9 @@ TODO-APP by Qwizi and Poftorek
 
 # Endpointy API
 * `/auth/`
+* `/todos/`
 * `/users/`
 * `/users/me/`
-* `/users/todos/`
 * `/users/change_username/`
 * `/users/change_email/`
 * `/users/change_password/`
