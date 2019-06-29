@@ -53,7 +53,7 @@ formLogin.addEventListener('submit', async (e) => {
     try {
         const uName = document.querySelector('#username').value;
         const uPass = document.querySelector('#user-password').value;
-        let res = await api.post(`/api-token-auth/`, {
+        let res = await api.post(`/auth/`, {
             username: uName,
             password: uPass
         });
