@@ -7,6 +7,26 @@ html, body {
 	-webkit-font-smoothing: antialiased;
 }
 
+fieldset {
+  max-width: 50rem;
+  font-size: 1.4rem;
+}
+
+fieldset {
+  border: 1px solid black;
+  margin: 1.5rem;
+  padding: 1rem;
+}
+
+label {
+  margin: 1.5rem;
+}
+
+#register-field label,
+#login-field label {
+  display: block;
+}
+
 #main.container {
 	padding: 50px;
 	background: #121212;
@@ -140,4 +160,4 @@ a:link {
 [data-tooltip] { 
     position: relative; 
     display: inline-block; 
-} 
+}

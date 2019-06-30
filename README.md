@@ -4,7 +4,6 @@ TODO-APP by Qwizi and Poftorek
 * `cd backend`
 * Instalacja pip'a https://www.liquidweb.com/kb/install-pip-windows/
 * `pip install -r requirements.txt`
-* `cd app`
 * `python manage.py migrate`
 * `python manage.py runserver`
 
@@ -12,3 +11,12 @@ TODO-APP by Qwizi and Poftorek
 * `cd frontend`
 * `npm install`
 * `npm start`
+
+# Endpointy API
+* `/auth/`
+* `/todos/`
+* `/users/`
+* `/users/me/`
+* `/users/change_username/`
+* `/users/change_email/`
+* `/users/change_password/`
