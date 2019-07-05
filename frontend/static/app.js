@@ -3,6 +3,16 @@ const api = axios.create({
 })
 
 let logged = localStorage.getItem('token') ? true : false;
+// Hide forms for logged users
+if (!logged) {
+    const regField = document.querySelector('#register-field');
+    regField.style.display = 'block';
+
+    const logField = document.querySelector('#login-field');
+    logField.style.display = 'block';
+}
+
+
 console.warn(`Czy zalogowany: ${logged}`);
 console.log(`Token: ${localStorage.getItem('token')}`);
 
