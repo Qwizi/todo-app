@@ -11,9 +11,9 @@ let userData = [];
 
 async function getUserData() {
     try {
-        let res = await api.get(`/api/users/me/`, {
+        let res = await api.get('/api/users/me/', {
             headers: {
-                'Authorization': `Token ${token}`
+                'Authorization': `Bearer ${token}`
             }
         })
         userData = res.data;
@@ -35,7 +35,7 @@ formRegister.addEventListener('submit', async (e) => {
         const uName = document.querySelector('#name').value;
         const uPass = document.querySelector('#password').value;
         const uMail = document.querySelector('#email').value;
-        let res = await api.post(`/api/users/`, {
+        let res = await api.post('/api/users/', {
             username: uName,
             password: uPass,
             email: uMail
@@ -53,11 +53,11 @@ formLogin.addEventListener('submit', async (e) => {
     try {
         const uName = document.querySelector('#username').value;
         const uPass = document.querySelector('#user-password').value;
-        let res = await api.post(`/auth/`, {
+        let res = await api.post('/api/token/', {
             username: uName,
             password: uPass
         });
-        localStorage.setItem('token', res.data.token);
+        localStorage.setItem('token', res.data.access);
         logged = true;
         console.log(res.data);
         console.log('zalogowano');
